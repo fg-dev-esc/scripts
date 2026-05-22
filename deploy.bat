@@ -8,6 +8,5 @@ if errorlevel 1 exit /b 1
 :current
 echo.
 echo D E P L O Y
-echo.
 
 call npm run deploy

@@ -1,5 +1,8 @@
 @echo off
 
+echo.
+echo C O D E
+
 if not "%~1"=="" (
     cd /d "%~1" || exit /b 1
 )

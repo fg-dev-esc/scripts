@@ -12,13 +12,11 @@ for /f "tokens=2,5" %%a in ('netstat -ano ^| findstr ":3000 :3001 :3002 :5173 :5
 
 if not defined FOUND (
     echo C L E A R
-    echo.
     exit /b
 )
 
 echo.
 echo D O N E
-echo.
 exit /b
 
 :killport

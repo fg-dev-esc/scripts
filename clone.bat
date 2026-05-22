@@ -9,7 +9,7 @@ cd /d C:\lffg\bs
 
 echo.
 echo C L O N E
-echo.
+
 git clone %1
 if errorlevel 1 exit /b 1
 
@@ -20,10 +20,9 @@ if errorlevel 1 exit /b 1
 
 echo.
 echo I N S T A L L
-echo.
+
 call npm install
 
 echo.
 echo C O D E
-echo.
 code .
