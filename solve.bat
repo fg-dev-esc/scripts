@@ -1,19 +1,8 @@
 @echo off
 
-if "%~1"=="" goto current
+if not "%~1"=="" (
+    cd /d "%~1" || exit /b 1
+)
 
-cd /d "%~1"
-if errorlevel 1 exit /b 1
-
-:current
-echo.
-echo C O D E
-echo.
-
-start "" code .
-
-echo.
-echo O P E N C O D E
-echo.
-
-start "" wt.exe -d . "%APPDATA%\npm\opencode.cmd"
+powershell.exe -NoProfile -Command "Start-Process -FilePath (Join-Path $env:LOCALAPPDATA 'Programs\Microsoft VS Code\Code.exe') -ArgumentList '.' -WorkingDirectory (Get-Location).Path"
+start "" wt.exe -d . "%APPDATA%\npm\node_modules\opencode-ai\bin\opencode.exe"
