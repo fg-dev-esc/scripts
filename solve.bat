@@ -16,4 +16,4 @@ echo.
 echo O P E N C O D E
 echo.
 
-wt.exe -d . powershell -NoExit -Command opencode
+start "" wt.exe -d . "%APPDATA%\npm\opencode.cmd"
