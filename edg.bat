@@ -1,0 +1,1 @@
+start msedge.exe --app=https://outlook.office.com
