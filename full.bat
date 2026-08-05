@@ -1,8 +1,6 @@
 @echo off
 
-echo.
 echo F U L L
-echo.
 
 if not "%~1"=="" (
     cd /d "%~1" || exit /b 1
