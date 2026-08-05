@@ -53,3 +53,19 @@ Start-Sleep -Milliseconds 500
 # Send F11 directly to VS Code so another application cannot receive it.
 [void][WindowApi]::PostMessage($handle, 0x0100, [IntPtr]0x7A, [IntPtr]0)
 [void][WindowApi]::PostMessage($handle, 0x0101, [IntPtr]0x7A, [IntPtr]0)
+
+Start-Sleep -Milliseconds 500
+
+# Close only Antigravity's visible window; its background process stays running.
+$antigravity = Get-Process Antigravity -ErrorAction SilentlyContinue |
+    Where-Object { $_.MainWindowHandle -ne 0 } |
+    Select-Object -First 1
+
+if ($antigravity) {
+    [void][WindowApi]::PostMessage(
+        [IntPtr]$antigravity.MainWindowHandle,
+        0x0010,
+        [IntPtr]::Zero,
+        [IntPtr]::Zero
+    )
+}
