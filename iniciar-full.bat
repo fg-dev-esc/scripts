@@ -1,5 +1,5 @@
 @echo off
-start "" "C:\lffg\desk\screen-explainer\node_modules\electron\dist\electron.exe" "C:\lffg\desk\screen-explainer"
+@REM start "" "C:\lffg\desk\context-providers-agent\node_modules\electron\dist\electron.exe" "C:\lffg\desk\context-providers-agent"
 
 cd /d C:\lffg\esc\sigsa-admin2-front
 call full

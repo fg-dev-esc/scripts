@@ -8,4 +8,4 @@ if not "%~1"=="" (
 
 start "" "%LOCALAPPDATA%\Programs\Microsoft VS Code\Code.exe" .
 
-start "" wt.exe -d . "%APPDATA%\npm\node_modules\opencode-ai\bin\opencode.exe"
+start "" wt.exe -d . "%APPDATA%\npm\opencode.cmd"
