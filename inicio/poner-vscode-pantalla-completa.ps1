@@ -56,16 +56,14 @@ Start-Sleep -Milliseconds 500
 
 Start-Sleep -Milliseconds 500
 
-# Close only Antigravity's visible window; its background process stays running.
-$antigravity = Get-Process Antigravity -ErrorAction SilentlyContinue |
+# Close visible startup windows; their background processes stay running.
+Get-Process Antigravity, ChatGPT, ms-teams -ErrorAction SilentlyContinue |
     Where-Object { $_.MainWindowHandle -ne 0 } |
-    Select-Object -First 1
-
-if ($antigravity) {
+    ForEach-Object {
     [void][WindowApi]::PostMessage(
-        [IntPtr]$antigravity.MainWindowHandle,
+        [IntPtr]$_.MainWindowHandle,
         0x0010,
         [IntPtr]::Zero,
         [IntPtr]::Zero
     )
-}
+    }
