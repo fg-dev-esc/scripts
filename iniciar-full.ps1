@@ -49,20 +49,6 @@ Start-Process `
     -ArgumentList @('-d', $projectPath, "$env:APPDATA\npm\opencode.cmd") `
     -WorkingDirectory $projectPath
 
-Start-Sleep -Seconds 2
-
-$terminal = Get-Process WindowsTerminal -ErrorAction SilentlyContinue |
-    Where-Object { $_.MainWindowHandle -ne 0 } |
-    Sort-Object StartTime -Descending |
-    Select-Object -First 1
-
-if ($terminal) {
-    [void][WindowApi]::ShowWindowAsync(
-        [IntPtr]$terminal.MainWindowHandle,
-        0
-    )
-}
-
 Write-Log 'Aplicaciones iniciadas'
 
 Start-Sleep -Seconds 90
